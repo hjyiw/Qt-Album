@@ -1,0 +1,117 @@
+﻿MainWindow{
+    background-color: rgb(46,47,48);
+}
+
+QMenuBar{
+    color: rgb(231,231,231);
+    background-color: rgb(46,47,48);
+}
+
+QMenu{
+    color: rgb(231,231,231);
+    background-color: rgb(55,55,55);
+}
+
+QMenuBar::item:selected{
+    background-color: rgb(80,80,80);
+}
+
+QMenu::item:selected{
+    background-color: rgb(39,96,154);
+}
+
+QWizardPage{
+    color: rgb(231,231,231);
+    background-color: rgb(46,47,48);
+}
+
+QWizardPage QLabel#lblTips{
+    color: rgb(255,51,51);
+}
+
+ProTree{
+    border-width: 1px 1px 1px 1px;
+    border-color: rgb(231,231,231);
+    border-style: solid;
+}
+
+QLabel#lblProTree{
+    color: rgb(231,231,231);
+    padding-top: 8px;
+    padding-left: 10px;
+    border-width: 0 0 1px 0;
+    border-color: rgb(231,231,231);
+    border-style: dotted;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+QTreeView{
+    background-color: rgb(46,47,48);
+    color: rgb(231,231,231);
+    border: 0px;
+}
+
+QTreeView::item:hover{
+    background-color: rgb(38,95,153);
+}
+
+QTreeView::item:selected{
+    background-color: rgb(38,95,153);
+}
+
+QTreeView::branch:open:has-children:has-siblings,
+QTreeView::branch:open:has-children:!has-siblings{
+    image: url(:/icon/icon/down.png);
+}
+
+QTreeView::branch:closed:has-children:has-siblings,
+QTreeView::branch:closed:has-children:!has-siblings{
+    image: url(:/icon/icon/right.png);
+}
+
+PicShowDialog{
+    border-color: #9f9f9f;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    background-color: rgb(64,66,68);
+    padding: 10px;
+}
+
+#btnNext, #btnPre{
+    border: none;
+}
+
+SlideShowDialog{
+    color: rgb(231,231,231);
+    background-color: rgb(46,47,48);
+}
+#lwSlide{
+    border: none;
+    background-color: rgb(46,47,48);
+    color: rgb(231,231,231);
+}
+
+#lwSlide::item:hover{
+    background-color: rgb(38,95,153);
+}
+
+#lwSlide::item:selected{
+    background-color: rgb(38,95,153);
+    border: 2px solid #ffffff;
+}
+
+#lwSlide::item:selected:active{
+    border: 2px solid #ffffff;
+}
+
+#NextWidget{
+    margin-right: 10px;
+}
+
+#PreWidget{
+    margin-left: 10px;
+}
+#btnPlay, #btnClose{
+    border: none;
+}
