@@ -11,8 +11,8 @@
 ImportProThread::ImportProThread(const QString &src_path, const QString &dest_path,
                                  int file_count, QTreeWidgetItem *parent_item,
                                  QTreeWidgetItem *root, QTreeWidget *self, QWidget *parent)
-    :QThread(parent),_src_path(src_path),_dest_path(dest_path),_parent_item(parent_item),
-    _root(root),_self(self),_file_count(file_count),_bstop(false)
+    :QThread(parent),_src_path(src_path),_dest_path(dest_path),_file_count(file_count),_parent_item(parent_item),
+    _root(root),_self(self),_bstop(false)
 {
 
 }
@@ -24,9 +24,10 @@ ImportProThread::~ImportProThread()
 
 void ImportProThread::run()
 {
-    // 开始拷贝构建目录树
-    CreateProTree(_src_path,_dest_path,_file_count,_parent_item,_root,_self);
-
+    QMetaObject::invokeMethod(_self, [=]() mutable{
+        // 开始拷贝构建目录树
+        CreateProTree(_src_path,_dest_path,_file_count,_parent_item,_root,_self);
+    }, Qt::QueuedConnection);
     // 取消操作
     if(_bstop){
         // 获取根目录路径
@@ -153,7 +154,7 @@ void ImportProThread::CreateProTree(const QString &src_path, const QString &dest
             _file_count ++;
             emit SigUpdateProg(_file_count,dest_file_path);
 
-            QMetaObject::invokeMethod(self, [=, this]() mutable{
+            QMetaObject::invokeMethod(self, [=]() mutable{
                 auto* item = new ProTreeWidgetItem(parent_item, root, fileInfo.fileName(), dest_file_path, TreeItemPic);
                 item->setData(0, Qt::DisplayRole, fileInfo.fileName());
                 item->setData(0, Qt::DecorationRole, QIcon(":/icon/icon/pic.png"));

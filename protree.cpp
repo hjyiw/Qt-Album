@@ -47,6 +47,8 @@ void ProTree::SlotAddProToTree(QString name, QString path)
         qDebug() << "mkpath fail!";
         return;
     }
+
+
     // 添加到目录树
     auto* item = new ProTreeWidgetItem(twProTree,name,file_path,TreeItemPro);
     item->setData(0,Qt::DisplayRole,name);

@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"E:\\C++_codes\\Qt_codes\\Album\\icon\\bulm.ico"
+IDI_ICON1	ICON	DISCARDABLE	"E:/C++_codes/Qt_codes/Album/icon/bulm.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
